@@ -1,7 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://i8ry00lrc4p7"]
+[gd_scene load_steps=30 format=3 uid="uid://i8ry00lrc4p7"]
 
 [ext_resource type="Texture2D" uid="uid://24r1ku8yy87e" path="res://sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://ca5r7p1sgl3os" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bw764lc7twpfe" path="res://sprites/fruit.png" id="2_qhqgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2brh"]
 atlas = ExtResource("1_3vyb7")
@@ -89,6 +98,17 @@ region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rhr3r"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [],
 "loop": true,
 "name": &"default",
@@ -176,6 +196,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_lj8jo"]
 radius = 5.09902
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(19.875, 16.5)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_g2els")
@@ -185,8 +208,16 @@ position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_rhr3r")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.720398
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_lj8jo")
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(33, 6)
+scale = Vector2(2, 2)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_g2els")

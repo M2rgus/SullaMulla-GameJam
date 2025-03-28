@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://i8ry00lrc4p7" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://by6j66rqxgr03" path="res://sprites/world_tileset.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://gdu5jb63eyg8" path="res://scenes/coin.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://cb4ymhvpfx0pl" path="res://scenes/slime.tscn" id="5_iywne"]
 [ext_resource type="Texture2D" uid="uid://dmsj2mwp00qm1" path="res://scenes/Free Pixel Art Forest/Preview/Background.png" id="5_p57ef"]
+[ext_resource type="PackedScene" uid="uid://cbgqgofpuly4e" path="res://scenes/enemy.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_yqjtg")
@@ -184,7 +184,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(327675, 524288, 1, 327671, 524288, 1, 327672, 524288, 0, 327673, 524288, 1, 327674, 524288, 0, 327677, 524288, 1, 327678, 524288, 0, 327679, 524288, 1, 262144, 524288, 0, 262145, 524288, 1, 262147, 524288, 1, 262146, 524288, 0, 262148, 524288, 0, 262149, 524288, 0, 262150, 524288, 0, 262152, 524288, 0, 262151, 524288, 1, 262153, 524288, 1, 262154, 524288, 0, 327670, 524288, 0, 327676, 524288, 0, 327664, 524288, 0, 327665, 524288, 1, 327666, 524288, 0, 327667, 524288, 1, 327668, 524288, 0, 327669, 524288, 1, 262155, 524288, 0, 262156, 524288, 1, 262157, 524288, 0, 262158, 524288, 1, 262159, 524288, 0, 262160, 524288, 1, 262161, 196608, 1, 262162, 196608, 0, 262163, 196608, 0, 262164, 196608, 1, 262165, 196608, 1, 262166, 196608, 1, 327643, 327680, 0, 327644, 327680, 0, 327645, 327680, 0, 327646, 327680, 1, 327647, 327680, 1, 327648, 327680, 0, 327649, 327680, 0, 327650, 327680, 0, 327651, 327680, 1, 327652, 327680, 0, 327653, 327680, 0, 327654, 327680, 1, 327655, 327680, 0, 327656, 327680, 0, 327657, 327680, 1, 327658, 327680, 0, 327659, 327680, 1, 327660, 327680, 0, 327661, 327680, 1, 327662, 327680, 0, 327663, 327680, 1, 262167, 196608, 0, 262168, 196608, 1, 262169, 196608, 0, 262170, 196608, 1, 262171, 196608, 0, 262172, 196608, 1, 262173, 196608, 0, 262174, 196608, 1, 262175, 196608, 0, 262176, 196608, 0, 262177, 196608, 1, 262178, 196608, 0, 262179, 196608, 1, 262180, 196608, 1, 262181, 196608, 1, 327640, 393216, 1, 327641, 327680, 0, 327642, 327680, 1, 262182, 393216, 1, 262183, 393216, 1, 262184, 393216, 1, 458799, 458752, 12, 393255, 458752, 12, 458791, 458752, 12, 524327, 458752, 12, 589863, 458752, 12, 393256, 458752, 12, 458792, 458752, 12, 524328, 458752, 12, 589864, 458752, 12, 393257, 458752, 12, 458793, 458752, 12, 524329, 458752, 12, 589865, 458752, 12, 393258, 458752, 12, 458794, 458752, 12, 524330, 458752, 12, 589866, 458752, 12, 196646, 393216, 1, 131110, 393216, 1, 65574, 393216, 1, 38, 393216, 1, -65498, 393216, 1, -131034, 393216, 1, -196570, 393216, 1, 262103, 393216, 1, 196567, 393216, 1, 131031, 393216, 1, 65495, 393216, 1, -41, 393216, 1, -65577, 393216, 1, 327639, 393216, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(11, 18)
+position = Vector2(-1, 33)
 scale = Vector2(1.8, 1.8)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -212,13 +212,13 @@ position = Vector2(7, -275.75)
 scale = Vector2(1.39547, 0.991803)
 texture = ExtResource("5_p57ef")
 
-[node name="Slime" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(221, 67)
-
-[node name="Slime2" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(448, 68)
-
 [node name="Layer00010" type="Sprite2D" parent="."]
 position = Vector2(16, -234)
 scale = Vector2(1.54203, 1)
 texture = ExtResource("1_p57ef")
+
+[node name="Enemy" parent="." instance=ExtResource("6_p57ef")]
+position = Vector2(231, 64)
+
+[node name="Enemy2" parent="." instance=ExtResource("6_p57ef")]
+position = Vector2(-218, 62)
